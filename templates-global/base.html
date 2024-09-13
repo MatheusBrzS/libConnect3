@@ -30,12 +30,12 @@
     </header>
 
     <nav class="bg-gray-300 p-4 flex justify-center space-x-4">
-        <button class="bg-gray-400 px-4 py-2 rounded-md">Categorias</button>
-        <button class="bg-gray-400 px-4 py-2 rounded-md">Autores</button>
-        <button class="bg-gray-400 px-4 py-2 rounded-md">Editoras</button>
+        <a href="{% url 'main:default' %}"><button class="bg-gray-400 px-4 py-2 rounded-md">Categorias</button></a>
+        <a href="{% url 'main:default' %}"><button class="bg-gray-400 px-4 py-2 rounded-md">Autores</button></a>
+        <a href="{% url 'main:default' %}"><button class="bg-gray-400 px-4 py-2 rounded-md">Editoras</button></a>
         <div class="flex space-x-4">
-            <button class="bg-gray-500 px-4 py-2 rounded-md">Empréstimo</button>
-            <button class="bg-gray-500 px-4 py-2 rounded-md">Reserva</button>
+            <a href="{% url 'main:default' %}"><button class="bg-gray-500 px-4 py-2 rounded-md">Empréstimo</button></a>
+            <a href="{% url 'main:default' %}"><button class="bg-gray-500 px-4 py-2 rounded-md">Reserva</button></a>
         </div>
     </nav>
 
