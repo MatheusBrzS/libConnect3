@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid grid-cols-3 gap-6">
+    {% for livro in livros %}
+    <div class="bg-gray-400 p-4 rounded-md flex flex-col items-center">
+        <i class="fas fa-book text-4xl mb-4"></i> 
+        <a href="{% url 'main:livro-detail' livro.id %}" class="text-lg font-bold hover:underline text-blue-600">
+            {{ livro.titulo }}
+        </a>
+        <p class="text-sm">Autor: {{ livro.autor }}</p>
+        <p class="text-sm">Ano: {{ livro.ano }}</p>
+        <p class="text-sm">Status: {{ livro.get_status_display }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+
