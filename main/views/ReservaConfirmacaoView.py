@@ -2,12 +2,13 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.edit import CreateView
 from django.utils.timezone import now
 from django.utils import timezone
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from main.forms.ReservaForm import ReservaForm
 from main.models import Emprestimo
 from main.models import Livro
 
-class ReservaConfirmacaoView(CreateView):
+class ReservaConfirmacaoView(LoginRequiredMixin, CreateView):
     model = Emprestimo
     form_class = ReservaForm
     template_name = 'reserva-confirmacao.html'
@@ -27,4 +28,6 @@ class ReservaConfirmacaoView(CreateView):
         emprestimo.data_emprestimo = now() 
         emprestimo.status = 'Pendente'
         emprestimo.save()
-        return redirect('reserva_sucesso')
+        livro.status = 'Reservado'
+        livro.save()
+        return redirect('main:reserva-sucesso')
