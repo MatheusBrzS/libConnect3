@@ -16,4 +16,4 @@ class Emprestimo(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='emprestimos')
 
     def __str__(self):
-        return f'{self.livro.titulo} emprestado por {self.usuario.username}'
+        return f'{self.livro.titulo} emprestado para {self.usuario.username}'

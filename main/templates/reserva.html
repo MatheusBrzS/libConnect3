@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-gray-300 p-6 rounded-lg shadow-lg mt-8">
+    <div class="flex justify-between items-center mb-4">
+        <a href="{% url 'main:index' %}" class="text-gray-700"><i class="fas fa-arrow-left text-2xl"></i></a>
+        <h2 class="text-xl font-bold">Livro a ser reservado: {{ livro.titulo }}</h2>
+    </div>
+    
+    <div class="flex items-center space-x-4 mb-4">
+        <div class="w-16 h-20 bg-gray-400 flex items-center justify-center">
+            <i class="fas fa-book-open text-3xl text-white"></i>
+        </div>
+        <div>
+            <p>Data Reserva: {{ data_reserva }}</p>
+            <p>Data Devolução: {{ data_devolucao }}</p>
+        </div>
+    </div>
+    
+    <div class="bg-white p-4 rounded-md shadow-md mb-4">
+        <h3 class="text-lg font-bold mb-2">Informações Relevantes</h3>
+        <p class="text-sm text-gray-700">
+            {{ livro.descricao }}
+        </p>
+    </div>
+    
+    <div class="flex justify-end">
+        <button class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
+            Continuar
+        </button>
+    </div>
+</div>
+{% endblock content %}

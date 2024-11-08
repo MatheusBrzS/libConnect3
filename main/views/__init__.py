@@ -1,2 +1,3 @@
 from main.views.IndexTemplateView import IndexTemplateView
 from main.views.LivroDetailView import LivroDetailView
+from main.views.ReservaConfirmacaoView import ReservaConfirmacaoView
