@@ -24,8 +24,19 @@
             </button>
         </div>
         
-        <div>
-            <i class="fas fa-user-circle text-3xl"></i> 
+        <div class="flex items-center space-x-4">
+            {% if user.is_authenticated %}
+                <span class="text-white">Olá, {{ user.username }}</span>
+                <form action="{% url 'main:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
+                        Sair
+                    </button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="text-white hover:text-gray-300">Login</a>
+            {% endif %}
+            <i class="fas fa-user-circle text-3xl"></i>
         </div>
     </header>
 
@@ -41,7 +52,7 @@
 
     <main class="p-8">
         {% block content %}
-        {% endblock content%}
+        {% endblock content %}
     </main>
 
 </body>
