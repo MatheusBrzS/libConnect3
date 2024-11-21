@@ -9,5 +9,17 @@ class IndexTemplateView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context['livros'] = Livro.objects.all()
+        
+        livros = Livro.objects.all()
+
+        categoriaId = self.request.GET.get('categoria')
+        if categoriaId:
+            livros = livros.filter(categoria__id=categoriaId)
+
+        autor = self.request.GET.get('autor')
+        if autor:
+            livros = livros.filter(autor__icontains=autor)
+
+        context['livros'] = livros
+        context['categorias'] = Categoria.objects.all() 
         return context
