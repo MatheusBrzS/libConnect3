@@ -40,15 +40,25 @@
         </div>
     </header>
 
-    <nav class="bg-gray-300 p-4 flex justify-center space-x-4">
-        <a href="{% url 'main:default' %}"><button class="bg-gray-400 px-4 py-2 rounded-md">Categorias</button></a>
-        <a href="{% url 'main:default' %}"><button class="bg-gray-400 px-4 py-2 rounded-md">Autores</button></a>
-        <a href="{% url 'main:default' %}"><button class="bg-gray-400 px-4 py-2 rounded-md">Editoras</button></a>
-        <div class="flex space-x-4">
-            <a href="{% url 'main:default' %}"><button class="bg-gray-500 px-4 py-2 rounded-md">Empréstimo</button></a>
-            <a href="{% url 'main:default' %}"><button class="bg-gray-500 px-4 py-2 rounded-md">Reserva</button></a>
-        </div>
-    </nav>
+    <form method="get" action="{% url 'main:index' %}">
+        <nav class="bg-gray-300 p-4 flex justify-center space-x-4">
+
+            <select name="categoria" class="px-4 py-2 rounded-md">
+                <option value="">Todas as Categorias</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria.id }}" {% if request.GET.categoria == categoria.id|stringformat:'s' %}selected{% endif %}>
+                        {{ categoria.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+    
+            <input type="text" name="autor" placeholder="Filtrar por autor" value="{{ request.GET.autor }}" class="px-4 py-2 rounded-md"/>
+    
+            <div class="flex space-x-4">
+                <button type="submit" class="bg-gray-400 px-4 py-2 rounded-md">Filtrar</button>
+            </div>
+        </nav>
+    </form>
 
     <main class="p-8">
         {% block content %}
