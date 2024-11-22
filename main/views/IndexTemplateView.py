@@ -2,6 +2,7 @@ from typing import Any
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from main.models import Categoria
 from main.models.Livro import Livro
 
 class IndexTemplateView(LoginRequiredMixin, TemplateView):
