@@ -7,6 +7,7 @@
    ```bash
    git clone https://github.com/seu-usuario/libconnect.git
    cd libconnect
+   git checkout v2
    ```
 
 2. **Crie e ative um ambiente virtual (recomendado):**
@@ -47,6 +48,7 @@ Para rodar o projeto localmente, é necessário criar um arquivo `.env` na raiz 
 1. **Gere as migrações necessárias:**
 
    ```bash
+   python manage.py makemigrations main
    python manage.py makemigrations
    ```
 
