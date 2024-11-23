@@ -5,7 +5,7 @@
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/libconnect.git
+   git clone https://github.com/seu-usuario/libConnect3.git
    cd libconnect
    git checkout v2
    ```
